@@ -1,0 +1,19 @@
+#cloud-config
+users:
+  - name: cjr
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+  - name: driordan
+    ssh-authorized-keys: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC2dDo4Xaz0q+YlnQwZp1WEFW2Zy5/ZAZWyEcR3QN5PcWWhnvr7twfn2boNq4cy5N6rferJvWgDE5RWxDYwqatkTeC0zlh3SQP/ZJsNOIULf1mGvVP8ddAnZmJfDSkcUCLjtDMETHI1WVHU8/t4EbqPFQTV2EI9UF1Rq+0BD9IWick/TOx7loXIgkec4wUSEMHlVua2Y1WpyChYwWPV32oNDVxzUpDN/nL7ONpvWLaDhghDHqWL4t3U8VYHekyeUvvrEDLhgK/CR9eFuEx8d3nil0PLyuqJ5R0v1hpq0+Vnx//fiZ5+pVhJ1rYO7//Dw6XpKQTPKaHwXIF11Z7hvi6bPlRx84oiLNjQ+JvDclaR7Mvf+sTKFIe1CBo+WEYXjZobp/ogTcT2o/JUCb05ZmTgluyI2R9GRrNsz6qFb2YpxVtDiMd/u54TEqE+DlVC+saon3rj+CEJtPQrsex35ztRhbBB3O6yEX6V8c8InfRjhle/yvxd0K3rnk5keZJy3FpNHeRYWgJBKhT0heWnvz7K8DfWp8C44ihVoyFUkBbcNQqd6nYBiH6wqF18o4xwco8eKsjtv9pmMPiiRXinSKn8zBWle8ZT4Ak7cslturHfdgV7bs21+cUZZxITm93qaL3rNvFwU+IUWEBw5idBSpqT25jn1v/aUWr0T/lenaP5lQ== dr@daveriordan.com
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+
+
+
+
+
+add-apt-repository ppa:webupd8team/java -y
+
+apt-get install oracle-java8-installer
