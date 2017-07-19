@@ -1,13 +1,24 @@
 #cloud-config
 package_upgrade: true
+groups:
+  - sudo
+  - docker
 users:
   - name: structr
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    groups: sudo docker
+    groups:
+      - sudo
+      - docker
     shell: /bin/bash
-    ssh-authorized-keys: ssh-rsa your public ssh key should go here. For additional support take a look here, and then copy the id_rsa.pub to this line https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa your public ssh key should go here. For additional support take a look here, and then copy the id_rsa.pub to this line https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2
 
 runcmd:
 - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && sudo apt-get update
 - sudo apt-get install -y docker-ce
+
+power_state:
+  timeout: 5
+  message: Rebooting very soon.
+  mode: reboot
